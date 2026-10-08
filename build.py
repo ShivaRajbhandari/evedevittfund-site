@@ -22,7 +22,7 @@ sec['hero'] = f'''<section class="hero" id="top">
       <div class="cta"><a class="btn y" href="#help">Mutual aid</a><a class="btn" href="#donate">Give</a></div>
     </div>
     <div class="art">
-      <img class="idaho" src="/img/logo-idaho.png" alt="Idaho, in trans flag colors" width="330" height="504">
+      <img class="idaho" src="/img/logo-idaho.svg" alt="Idaho, in trans flag colors" width="330" height="504">
     </div>
   </div>
 </section>
@@ -141,4 +141,7 @@ for old, anchor in OLD.items():
         f'<!doctype html><html lang="en"><meta charset="utf-8"><title>The Eve Devitt Fund</title><meta name="robots" content="noindex">'
         f'<link rel="canonical" href="/#{anchor}"><meta http-equiv="refresh" content="0;url=/#{anchor}">'
         f'<script>location.replace("/#{anchor}")</script><p><a href="/#{anchor}">Continue to the Eve Devitt Fund homepage</a></p></html>')
+import datetime, glob as _g
+open('dist/sitemap.xml', 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://www.evedevittfund.org/</loc><lastmod>' + datetime.date.today().isoformat() + '</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url></urlset>\n')
+for k in _g.glob('[0-9a-f]'*32 + '.txt'): shutil.copy(k, 'dist/' + k)   # IndexNow ownership key
 print('built dist/index.html', len(t), 'bytes')
