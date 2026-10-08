@@ -2,7 +2,7 @@ backend:
   name: github
   repo: ShivaRajbhandari/evedevittfund-site
   branch: main
-  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev   # the login helper in /oauth-worker
+  base_url: https://holy-boat-208c.shiva-a-rajbhandari.workers.dev   # the login helper in /oauth-worker
   auth_endpoint: auth
   commit_messages:
     create: "Add {{collection}} “{{slug}}”"
