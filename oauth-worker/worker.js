@@ -1,5 +1,6 @@
 // Tiny GitHub login helper for Decap CMS, for Cloudflare Workers (free plan).
-// Secrets to set in Cloudflare: GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET. Variable: SITE_ORIGIN (e.g. https://www.evedevittfund.org)
+// Secrets to set in Cloudflare: GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET.
+// Variable: SITE_ORIGIN = the site(s) allowed to use this login, comma-separated, e.g. https://www.evedevittfund.org,https://www.shivarajbhandari.com
 const enc = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 export default {
   async fetch(req, env) {
@@ -22,11 +23,11 @@ export default {
       const ok = !!data.access_token;
       const msg = ok ? 'authorization:github:success:' + JSON.stringify({ token: data.access_token, provider: 'github' })
                      : 'authorization:github:error:' + JSON.stringify({ message: data.error || 'unknown' });
-      const origin = env.SITE_ORIGIN;
+      const allowed = String(env.SITE_ORIGIN || '').split(',').map((x) => x.trim()).filter(Boolean);
       const html = `<!doctype html><meta charset=utf-8><body><script>
-(function(){var msg=${JSON.stringify(msg)},origin=${JSON.stringify(origin)};
-window.addEventListener('message',function(e){if(e.origin!==origin)return;window.opener.postMessage(msg,origin);window.close()});
-window.opener.postMessage('authorizing:github',origin);})();
+(function(){var msg=${JSON.stringify(msg)},ok=${JSON.stringify(allowed)};
+window.addEventListener('message',function(e){if(ok.indexOf(e.origin)<0)return;window.opener.postMessage(msg,e.origin);window.close()});
+window.opener.postMessage('authorizing:github','*');})();
 </script>${enc(ok ? 'Logged in. You can close this window.' : 'Login failed.')}`;
       return new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Set-Cookie': 'st=; Max-Age=0; Path=/' } });
     }
