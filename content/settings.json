@@ -1,0 +1,115 @@
+{
+  "site": {
+    "title": "The Eve Devitt Fund",
+    "description": "The Eve Devitt Fund is a 501(c)(3) nonprofit supporting Idaho's trans and non-binary youth with travel funds for gender-affirming care, scholarships and microgrants."
+  },
+  "hero": {
+    "eyebrow": "Idaho · Since 2023 · 501(c)(3) nonprofit",
+    "big": "Proud",
+    "rest": "to stand with Idaho’s trans + non-binary youth.",
+    "lede": "Travel funds, scholarships and microgrants, built and run by Idaho young people."
+  },
+  "help": {
+    "eyebrow": "Ways we help",
+    "title": "Three funds. One promise.",
+    "intro": "We are here so Idaho’s trans and non-binary youth can get care, get to college and keep organizing.",
+    "cards": [
+      {
+        "tag": "Travel Fund",
+        "title": "Need to travel for care?",
+        "body": "We help pay for gas, airfare, lodging, childcare and food ($70 a day) for Idaho trans and non-binary kids and their families traveling out of state for gender-affirming care. Need-based and confidential.",
+        "button": "Request travel help",
+        "url": "https://docs.google.com/forms/d/1BWCjxJRRhTOqdo3X5bTU9BlIiTQV6oDg1atH_7BS8zQ/viewform"
+      },
+      {
+        "tag": "Microgrants",
+        "title": "Organizing something?",
+        "body": "Up to $500 for Idaho youth organizers: banners, sound systems, food, speaker honoraria, supplies and more. Funds can arrive in as little as 48 hours.",
+        "button": "Request a microgrant",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSdU7KkDpzHl4zYSFXsA86LKGoM5Brkvjul8vC_cPdtcxcnLZA/viewform"
+      },
+      {
+        "tag": "Scholarship",
+        "title": "Headed to college?",
+        "body": "$2,500 for up to three Idaho high school seniors who have advanced human rights, with preference for LGBTQ+ and BIPOC applicants with financial need. Next deadline: **May 15, 2027**.",
+        "button": "Apply",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSfGU1m2bKrU7CqOk4RnsZ_jqjtK2AyIv-0P9lzxLlwI1d8pDw/viewform"
+      }
+    ]
+  },
+  "how": {
+    "eyebrow": "Travel Fund",
+    "title": "How it works",
+    "steps": [
+      {
+        "title": "Tell us about your trip",
+        "body": "A short form, about 5 minutes: where you live, where you’re going, when, and what it will cost. If we approve your request, a second private form asks for a photo ID and your doctor’s name, so we can book and pay for your trip."
+      },
+      {
+        "title": "Quick, kind check-in",
+        "body": "Two board members reach out by the way you told us is safe (text, call or email) for a short conversation. It’s how we make sure every dollar reaches a kid who needs it."
+      },
+      {
+        "title": "We pay for the trip",
+        "body": "Where we can, we book or pay flights and lodging directly. Gas, childcare and per diem are reimbursed with receipts. You don’t need to front the money."
+      }
+    ],
+    "privacy": "Your privacy matters. Only the board members reviewing your request see your information, we ask for the minimum we need, and we never share, sell or publish it."
+  },
+  "gift": {
+    "eyebrow": "What a gift can do",
+    "title": "Every dollar goes to Idaho youth.",
+    "items": [
+      {
+        "amount": "$70",
+        "text": "covers a day of food and living costs for a kid traveling for care."
+      },
+      {
+        "amount": "$500",
+        "text": "funds a full microgrant for a youth organizer’s banners, sound and supplies."
+      },
+      {
+        "amount": "$2,500",
+        "text": "sends an Idaho senior with a record of human rights work to college."
+      }
+    ]
+  },
+  "scholars": {
+    "title": "Our scholars",
+    "intro": "Idaho high school seniors who have advanced human rights, and who are now on their way to college."
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Named for Eve Devitt",
+    "body": "In 2023, after Idaho banned gender-affirming care for minors, five Idaho students started a fund so kids could still get the care they need. It carries the name of Eve Devitt, an Idaho human rights activist who refuses to back down in the fight for trans visibility, inclusion and care.",
+    "pledge": "We are proud to stand with Idaho’s trans and non-binary youth. Loudly, and for the long haul.",
+    "story_title": "Eve’s story",
+    "story_body": "Eve Devitt is an actress, poet and human rights activist. For years, she and her family have led the charge to defend trans rights in Idaho: organizing rallies, meeting with lawmakers and testifying at the legislature.\n\nEve answers hate and bigotry with love and resilience, and she helped build a community across the state around one message for LGBTQ+ youth: you are loved and welcome here.",
+    "story_link_text": "Watch the Idaho Statesman’s report on Eve and her father",
+    "story_link_url": "https://www.youtube.com/watch?v=yx5OgNNIx6A"
+  },
+  "donate": {
+    "eyebrow": "Give",
+    "title": "Stand with Idaho’s trans + non-binary youth.",
+    "intro": "The Eve Devitt Fund has no administrative costs, so 100% of donated funds directly support our programs: travel to care, scholarships and youth organizing across Idaho. Your gift is tax-deductible.",
+    "fallback_button": "Prefer a full page? Give on Zeffy",
+    "fine": "Give once, or make it monthly. We use Zeffy so 100% of your donation goes to our mission. The Eve Devitt Fund is a DBA of the Eve Devitt Scholarship Fund, a 501(c)(3) nonprofit, EIN 92-3398844. Prefer a check? Mail it to the address below.",
+    "zeffy_url": "https://www.zeffy.com/en-US/donation-form/stand-with-idahos-transgender-and-non-binary-youth"
+  },
+  "crisis": {
+    "title": "If you’re an LGBTQ+ kid in crisis, there are people who can help.",
+    "lines": [
+      "**The Trevor Project**, 24/7: call 1-866-488-7386 or text START to 678-678",
+      "**Trans Lifeline**: 1-877-565-8860"
+    ]
+  },
+  "footer": {
+    "org": "The Eve Devitt Fund",
+    "address1": "721 E Hearthstone Dr",
+    "address2": "Boise, ID 83702",
+    "email": "info@evedevittfund.org",
+    "phone": "(208) 918-1607",
+    "instagram": "https://www.instagram.com/evedevittfund/",
+    "legal": "The Eve Devitt Fund is a DBA of the Eve Devitt Scholarship Fund, a 501(c)(3) nonprofit (EIN 92-3398844). Donations are tax-deductible to the extent allowed by law."
+  }
+}

@@ -1,0 +1,162 @@
+backend:
+  name: github
+  repo: ShivaRajbhandari/evedevittfund-site
+  branch: main
+  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev   # the login helper in /oauth-worker
+  auth_endpoint: auth
+  commit_messages:
+    create: "Add {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+publish_mode: editorial_workflow   # edits stay drafts until someone clicks Publish
+media_folder: img/uploads
+public_folder: /img/uploads
+site_url: https://www.evedevittfund.org
+display_url: https://www.evedevittfund.org
+
+collections:
+  - name: scholars
+    label: Scholars
+    label_singular: Scholar
+    folder: content/scholars
+    extension: json
+    format: json
+    create: true
+    slug: "{{year}}-{{name}}"
+    summary: "{{year}} · {{name}}"
+    sortable_fields: [year, name]
+    fields:
+      - {label: Name, name: name, widget: string}
+      - {label: Year awarded, name: year, widget: number, value_type: int, min: 2023, max: 2100}
+      - {label: Photo, name: photo, widget: image, hint: "Square headshot works best. Only upload photos you have written permission to publish."}
+      - {label: Bio, name: bio, widget: text, hint: "A few sentences: hometown, what they did, where they are headed."}
+
+  - name: board
+    label: Board
+    label_singular: Board member
+    folder: content/board
+    extension: json
+    format: json
+    create: true
+    slug: "{{name}}"
+    summary: "{{name}} · {{role}}"
+    fields:
+      - {label: Name, name: name, widget: string}
+      - {label: Role, name: role, widget: string}
+      - {label: Photo, name: photo, widget: image}
+      - {label: Bio, name: bio, widget: text}
+      - {label: Order on page, name: order, widget: number, value_type: int, hint: "1 shows first."}
+
+  - name: pages
+    label: Page text
+    files:
+      - label: Homepage text
+        name: settings
+        file: content/settings.json
+        format: json
+        fields:
+          - label: Search results
+            name: site
+            widget: object
+            fields:
+              - {label: Site title, name: title, widget: string}
+              - {label: Description (shows on Google), name: description, widget: text}
+          - label: Top of page
+            name: hero
+            widget: object
+            fields:
+              - {label: Small line above headline, name: eyebrow, widget: string}
+              - {label: Big first word, name: big, widget: string}
+              - {label: Rest of headline, name: rest, widget: string}
+              - {label: Subheading, name: lede, widget: text}
+          - label: Ways we help
+            name: help
+            widget: object
+            fields:
+              - {label: Small heading, name: eyebrow, widget: string}
+              - {label: Heading, name: title, widget: string}
+              - {label: Intro, name: intro, widget: text}
+              - label: Cards
+                name: cards
+                widget: list
+                min: 1
+                max: 6
+                summary: "{{fields.tag}}"
+                fields:
+                  - {label: Label, name: tag, widget: string}
+                  - {label: Title, name: title, widget: string}
+                  - {label: Text, name: body, widget: text, hint: "Use **double stars** for bold."}
+                  - {label: Button text, name: button, widget: string}
+                  - {label: Button link, name: url, widget: string, required: false, hint: "A full web address. Leave blank to hide the button."}
+          - label: How the Travel Fund works
+            name: how
+            widget: object
+            fields:
+              - {label: Small heading, name: eyebrow, widget: string}
+              - {label: Heading, name: title, widget: string}
+              - label: Steps
+                name: steps
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - {label: Text, name: body, widget: text}
+              - {label: Privacy promise, name: privacy, widget: text}
+          - label: What a gift can do
+            name: gift
+            widget: object
+            fields:
+              - {label: Small heading, name: eyebrow, widget: string}
+              - {label: Heading, name: title, widget: string}
+              - label: Amounts
+                name: items
+                widget: list
+                summary: "{{fields.amount}}"
+                fields:
+                  - {label: Amount, name: amount, widget: string}
+                  - {label: What it does, name: text, widget: text}
+          - label: Scholars section
+            name: scholars
+            widget: object
+            fields:
+              - {label: Heading, name: title, widget: string}
+              - {label: Intro, name: intro, widget: text}
+          - label: About
+            name: about
+            widget: object
+            fields:
+              - {label: Small heading, name: eyebrow, widget: string}
+              - {label: Heading, name: title, widget: string}
+              - {label: Text, name: body, widget: text}
+              - {label: Bold line, name: pledge, widget: string}
+              - {label: Eve's story heading, name: story_title, widget: string, required: false}
+              - {label: Eve's story text, name: story_body, widget: text, required: false, hint: "Leave a blank line between paragraphs."}
+              - {label: Story link text, name: story_link_text, widget: string, required: false}
+              - {label: Story link address, name: story_link_url, widget: string, required: false}
+          - label: Give section
+            name: donate
+            widget: object
+            fields:
+              - {label: Small heading, name: eyebrow, widget: string}
+              - {label: Heading, name: title, widget: string}
+              - {label: Intro, name: intro, widget: text}
+              - {label: Fallback button text, name: fallback_button, widget: string}
+              - {label: Zeffy page address, name: zeffy_url, widget: string}
+              - {label: Fine print, name: fine, widget: text}
+          - label: Crisis resources
+            name: crisis
+            widget: object
+            fields:
+              - {label: Heading, name: title, widget: string}
+              - {label: Lines, name: lines, widget: list, field: {label: Line, name: line, widget: string}, hint: "Use **double stars** for bold."}
+          - label: Footer
+            name: footer
+            widget: object
+            fields:
+              - {label: Organization, name: org, widget: string}
+              - {label: Address line 1, name: address1, widget: string}
+              - {label: Address line 2, name: address2, widget: string}
+              - {label: Email, name: email, widget: string}
+              - {label: Phone, name: phone, widget: string}
+              - {label: Instagram address, name: instagram, widget: string}
+              - {label: Legal line, name: legal, widget: text}
