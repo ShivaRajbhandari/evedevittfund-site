@@ -22,7 +22,7 @@ sec['hero'] = f'''<section class="hero" id="top">
       <div class="cta"><a class="btn y" href="#help">Mutual aid</a><a class="btn" href="#donate">Give</a></div>
     </div>
     <div class="art">
-      <svg class="idaho" viewBox="0 0 100 100" role="img" aria-label="Idaho, in trans flag colors"><use href="#m1" width="100" height="100"/></svg>
+      <img class="idaho" src="/img/logo-idaho.png" alt="Idaho, in trans flag colors" width="330" height="504">
     </div>
   </div>
 </section>
