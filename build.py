@@ -56,11 +56,13 @@ sec['gift'] = f'''<section class="gift" id="gift">
   </div>
 </section>
 '''
+def pos(x):  # where a photo is anchored inside its circle
+    return f' style="object-position:center {e(x.get("photo_position","center"))}"' if x.get('photo_position') in ('top', 'bottom') else ''
 def scholar(s):
-    return (f'<article><div class="who"><img src="{e(s["photo"])}" alt="Photo of {e(s["name"])}" width="64" height="64" loading="lazy"><h4>{e(s["name"])}</h4></div>'
+    return (f'<article><div class="who"><img{pos(s)} src="{e(s["photo"])}" alt="Photo of {e(s["name"])}" width="64" height="64" loading="lazy"><h4>{e(s["name"])}</h4></div>'
             f'<p>{e(s["bio"])}</p></article>')
 by = {}
-for s in items('scholars'): by.setdefault(int(s['year']), []).append(s)
+for s in sorted(items('scholars'), key=lambda s: (s.get('order', 99), s['name'])): by.setdefault(int(s['year']), []).append(s)
 years = ''.join(f'\n    <h3 class="yr">{y}</h3>\n    <div class="sgrid">\n      ' + '\n      '.join(scholar(s) for s in by[y]) + '\n    </div>' for y in sorted(by, reverse=True))
 sec['scholars'] = f'''<section class="scholars" id="scholars">
   <div class="in">
@@ -70,7 +72,7 @@ sec['scholars'] = f'''<section class="scholars" id="scholars">
   </div>
 </section>
 '''
-board = ''.join(f'<li><div class="av"><img src="{e(b["photo"])}" alt="Photo of {e(b["name"])}" width="72" height="72" loading="lazy"></div><div><strong>{e(b["name"])}</strong><small>{e(b["role"])}</small><span class="b">{e(b["bio"])}</span></div></li>'
+board = ''.join(f'<li><div class="av"><img{pos(b)} src="{e(b["photo"])}" alt="Photo of {e(b["name"])}" width="72" height="72" loading="lazy"></div><div><strong>{e(b["name"])}</strong><small>{e(b["role"])}</small><span class="b">{e(b["bio"])}</span></div></li>'
                 for b in sorted(items('board'), key=lambda b: b.get('order', 99)))
 story = ''
 if A.get('story_body'):
@@ -119,10 +121,15 @@ sec['footer'] = f'''<footer class="foot">
 '''
 t = open('src/template.html', encoding='utf-8').read()
 for k, v in sec.items(): t = t.replace(f'<!--@{k}-->', v)
+th = c.get('theme', {})
+if th:
+    t = t.replace('</head>', '<style>:root{' + ''.join(f'--{k}:{v};' for k, v in th.items() if re.fullmatch(r'#[0-9a-fA-F]{3,8}', str(v))) + '}</style>\n</head>', 1)
 t = t.replace('{{title}}', e(c['site']['title'])).replace('{{description}}', e(c['site']['description'], quote=True))
 shutil.rmtree('dist', ignore_errors=True); os.makedirs('dist')
 open('dist/index.html', 'w', encoding='utf-8').write(t)
 shutil.copytree('img', 'dist/img'); shutil.copytree('admin', 'dist/admin')
+css = re.search(r'<style>(.*?)</style>', t, re.S).group(1)  # the live site's styles, reused by the editor preview
+open('dist/admin/preview.css', 'w', encoding='utf-8').write(css)
 for f in ('CNAME', 'robots.txt', '404.html'):
     if os.path.exists(f): shutil.copy(f, 'dist/' + f)
 # old Google Sites addresses -> homepage sections (GitHub Pages has no server redirects)

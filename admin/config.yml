@@ -30,6 +30,8 @@ collections:
       - {label: Year awarded, name: year, widget: number, value_type: int, min: 2023, max: 2100}
       - {label: Photo, name: photo, widget: image, hint: "Square headshot works best. Only upload photos you have written permission to publish."}
       - {label: Bio, name: bio, widget: text, hint: "A few sentences: hometown, what they did, where they are headed."}
+      - {label: Photo position, name: photo_position, widget: select, options: [{label: Center, value: center}, {label: Show more of the top (faces near the top), value: top}, {label: Show more of the bottom, value: bottom}], default: center, required: false, hint: "If a face is cut off in the circle, change this."}
+      - {label: Order within the year, name: order, widget: number, value_type: int, required: false, hint: "1 shows first. Blank sorts by name."}
 
   - name: board
     label: Board
@@ -45,6 +47,7 @@ collections:
       - {label: Role, name: role, widget: string}
       - {label: Photo, name: photo, widget: image}
       - {label: Bio, name: bio, widget: text}
+      - {label: Photo position, name: photo_position, widget: select, options: [{label: Center, value: center}, {label: Show more of the top (faces near the top), value: top}, {label: Show more of the bottom, value: bottom}], default: center, required: false, hint: "If a face is cut off in the circle, change this."}
       - {label: Order on page, name: order, widget: number, value_type: int, hint: "1 shows first."}
 
   - name: pages
@@ -61,6 +64,18 @@ collections:
             fields:
               - {label: Site title, name: title, widget: string}
               - {label: Description (shows on Google), name: description, widget: text}
+          - label: Site colors
+            name: theme
+            widget: object
+            collapsed: true
+            summary: "Click to change the site's colors"
+            fields:
+              - {label: "Dark text and outlines (ink)", name: ink, widget: color, allowInput: true}
+              - {label: "Main blue (header, buttons, hero)", name: blue, widget: color, allowInput: true}
+              - {label: "Light blue", name: sky, widget: color, allowInput: true}
+              - {label: "Pink", name: pink, widget: color, allowInput: true}
+              - {label: "Yellow", name: yellow, widget: color, allowInput: true}
+              - {label: "Cream background", name: cream, widget: color, allowInput: true}
           - label: Top of page
             name: hero
             widget: object
