@@ -164,6 +164,15 @@ collections:
             fields:
               - {label: Heading, name: title, widget: string}
               - {label: Lines, name: lines, widget: list, field: {label: Line, name: line, widget: string}, hint: "Use **double stars** for bold."}
+          - label: "404 page (when a link is broken)"
+            name: not_found
+            widget: object
+            fields:
+              - {label: Small line above the heading, name: eyebrow, widget: string}
+              - {label: Heading, name: heading, widget: string}
+              - {label: Message, name: text, widget: text}
+              - {label: Button text, name: button_label, widget: string}
+              - {label: "Button goes to (e.g. /)", name: button_url, widget: string}
           - label: Footer
             name: footer
             widget: object

@@ -119,5 +119,12 @@
     "phone": "(208) 918-1607",
     "instagram": "https://www.instagram.com/evedevittfund/",
     "legal": "The Eve Devitt Fund is a DBA of the Eve Devitt Scholarship Fund, a 501(c)(3) nonprofit (EIN 92-3398844). Donations are tax-deductible to the extent allowed by law."
+  },
+  "not_found": {
+    "eyebrow": "Page not found",
+    "heading": "This page doesn’t exist.",
+    "text": "The link may be old or mistyped. Head back to the homepage. If you need support right now, the resources below are here for you.",
+    "button_label": "Go to the homepage",
+    "button_url": "/"
   }
 }

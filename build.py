@@ -130,8 +130,30 @@ open('dist/index.html', 'w', encoding='utf-8').write(t)
 shutil.copytree('img', 'dist/img'); shutil.copytree('admin', 'dist/admin')
 css = re.search(r'<style>(.*?)</style>', t, re.S).group(1)  # the live site's styles, reused by the editor preview
 open('dist/admin/preview.css', 'w', encoding='utf-8').write(css)
-for f in ('CNAME', 'robots.txt', '404.html'):
+for f in ('CNAME', 'robots.txt'):
     if os.path.exists(f): shutil.copy(f, 'dist/' + f)
+# Page-not-found page (GitHub Pages shows 404.html for any address that doesn't exist): same design, quick exit and crisis lines.
+NF = c.get('not_found', {})
+sec404 = {k: '' for k in ('hero', 'help', 'how', 'gift', 'scholars', 'about', 'donate')}
+sec404['hero'] = f'''<section class="notfound" id="top">
+  <div class="in">
+    <p class="eyebrow">{e(NF.get('eyebrow', ''))}</p>
+    <h1><span class="big">404</span> {e(NF.get('heading', ''))}</h1>
+    <p class="lede">{inline(NF.get('text', ''))}</p>
+    <div class="cta"><a class="btn y" href="{e(NF.get('button_url', '/'))}">{e(NF.get('button_label', 'Go to the homepage'))}</a></div>
+  </div>
+</section>
+'''
+sec404['crisis'] = sec['crisis']; sec404['footer'] = sec['footer']
+t4 = open('src/template.html', encoding='utf-8').read()
+for k, v in sec404.items(): t4 = t4.replace(f'<!--@{k}-->', v)
+if th:
+    t4 = t4.replace('</head>', '<style>:root{' + ''.join(f'--{k}:{v};' for k, v in th.items() if re.fullmatch(r'#[0-9a-fA-F]{3,8}', str(v))) + '}</style>\n</head>', 1)
+t4 = t4.replace('{{title}}', 'Page not found · ' + e(c['site']['title'])).replace('{{description}}', e(c['site']['description'], quote=True))
+t4 = t4.replace('href="#', 'href="/#')   # menu and footer links must point back to the homepage
+t4 = re.sub(r'<link rel="canonical"[^>]*>', '<meta name="robots" content="noindex">', t4)
+t4 = re.sub(r'<script type="application/ld\+json">.*?</script>\n?', '', t4, flags=re.S)
+open('dist/404.html', 'w', encoding='utf-8').write(t4)
 # old Google Sites addresses -> homepage sections (GitHub Pages has no server redirects)
 OLD = {'about': 'about', 'about/eves-story': 'about', 'about/our-board': 'about', 'donate': 'donate', 'grants': 'help',
        'mutual-aid': 'help', 'scholarship': 'scholars', 'scholarship/past-recipients': 'scholars'}
