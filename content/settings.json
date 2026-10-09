@@ -65,7 +65,7 @@
     "title": "Stand with Idaho’s trans + non-binary youth.",
     "intro": "The Eve Devitt Fund has no administrative costs, so 100% of donated funds directly support our programs: travel to care, scholarships and youth organizing across Idaho. Your gift is tax-deductible.",
     "fallback_button": "Prefer a full page? Give on Zeffy",
-    "fine": "Give once, or make it monthly. We use Zeffy so 100% of your donation goes to our mission. The Eve Devitt Fund is a DBA of the Eve Devitt Scholarship Fund, a 501(c)(3) nonprofit, EIN 92-3398844. Prefer a check? Mail it to the address below.",
+    "fine": "Give once, or make it monthly. We use Zeffy so 100% of your donation goes to our mission.\nPrefer a check? Mail it to 721 E Hearthstone Dr, Boise, ID 83702.",
     "zeffy_url": "https://www.zeffy.com/en-US/donation-form/stand-with-idahos-transgender-and-non-binary-youth"
   },
   "how": {
@@ -105,6 +105,13 @@
       }
     ]
   },
+  "not_found": {
+    "eyebrow": "Page not found",
+    "heading": "This page doesn’t exist.",
+    "text": "The link may be old or mistyped. Head back to the homepage. If you need support right now, the resources below are here for you.",
+    "button_label": "Go to the homepage",
+    "button_url": "/"
+  },
   "hero": {
     "eyebrow": "Idaho · Since 2023 · 501(c)(3) nonprofit",
     "big": "PROUD",
@@ -118,14 +125,7 @@
     "email": "info@evedevittfund.org",
     "phone": "(208) 918-1607",
     "instagram": "https://www.instagram.com/evedevittfund/",
-    "legal": "The Eve Devitt Fund is a DBA of the Eve Devitt Scholarship Fund, a 501(c)(3) nonprofit (EIN 92-3398844). Donations are tax-deductible to the extent allowed by law.",
-    "copyright": "© {year} The Eve Devitt Fund. All rights reserved."
-  },
-  "not_found": {
-    "eyebrow": "Page not found",
-    "heading": "This page doesn’t exist.",
-    "text": "The link may be old or mistyped. Head back to the homepage. If you need support right now, the resources below are here for you.",
-    "button_label": "Go to the homepage",
-    "button_url": "/"
+    "legal": "The Eve Devitt Fund is a DBA of the Eve Devitt Scholarship Fund, a 501(c)(3) nonprofit (EIN 92-3398844).",
+    "copyright": "© {year} The Eve Devitt Fund."
   }
 }
