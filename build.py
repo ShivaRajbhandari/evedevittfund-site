@@ -136,7 +136,7 @@ css = re.search(r'<style>(.*?)</style>', t, re.S).group(1)  # the live site's st
 open('dist/admin/preview.css', 'w', encoding='utf-8').write(css)
 for f in ('CNAME', 'robots.txt'):
     if os.path.exists(f): shutil.copy(f, 'dist/' + f)
-# Page-not-found page (GitHub Pages shows 404.html for any address that doesn't exist): same design, quick exit and crisis lines.
+# Page-not-found page (GitHub Pages shows 404.html for any address that doesn't exist): same design and crisis lines.
 NF = c.get('not_found', {})
 sec404 = {k: '' for k in ('hero', 'help', 'how', 'gift', 'scholars', 'about', 'donate')}
 sec404['hero'] = f'''<section class="notfound" id="top">

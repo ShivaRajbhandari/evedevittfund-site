@@ -24,13 +24,12 @@ a{color:inherit}
 :focus-visible{outline:4px solid var(--yellow);outline-offset:3px}
 .skip{position:absolute;left:-999px}.skip:focus{left:10px;top:10px;background:var(--yellow);color:var(--ink);padding:8px 12px;z-index:99}
 .tbd{background:rgba(255,222,0,.35);border-bottom:2px dashed #7a5a00;padding:0 3px;color:inherit}
-.qe{position:fixed;top:10px;right:12px;z-index:80;font:700 13px/1 var(--label);letter-spacing:.08em;text-transform:uppercase;background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:99px;padding:8px 13px;cursor:pointer}
 /* Awning */
 .awning{height:34px;background:repeating-linear-gradient(90deg,var(--sky) 0 40px,var(--pink) 40px 80px,#fff 80px 120px,var(--pink) 120px 160px,var(--sky) 160px 200px);position:relative;z-index:30}
 .awning::after{content:"";position:absolute;left:0;right:0;top:100%;height:14px;background:
 radial-gradient(circle at 20px 0,var(--sky) 19px,transparent 20px) 0 0/40px 14px repeat-x,
 radial-gradient(circle at 20px 0,var(--pink) 19px,transparent 20px) 40px 0/40px 14px repeat-x;filter:drop-shadow(0 3px 0 rgba(10,18,64,.35))}
-.nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px clamp(18px,4vw,56px) 12px;padding-right:clamp(130px,13vw,170px);background:var(--blue)}
+.nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px clamp(18px,4vw,56px) 12px;background:var(--blue)}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:400 20px/1 var(--display);color:#fff;text-transform:uppercase}
 .brand img{height:50px;width:auto;flex:none}
 .nav nav{display:flex;gap:22px;align-items:center;font:700 17px var(--label);letter-spacing:.08em;text-transform:uppercase}
@@ -122,7 +121,7 @@ h2{font-size:clamp(30px,4.6vw,58px);margin-bottom:18px;letter-spacing:-.005em}
 @media (max-width:900px){
  .hero .in,.about .in{grid-template-columns:1fr}
  .cards,.steps,.amts,.foot .in{grid-template-columns:1fr}
- .nav nav{display:none}.nav{padding-right:118px}
+ .nav nav{display:none}
  .art{margin-top:8px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
@@ -130,7 +129,6 @@ h2{font-size:clamp(30px,4.6vw,58px);margin-bottom:18px;letter-spacing:-.005em}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<button class="qe" type="button" id="qe" aria-label="Quick exit: leave this site immediately">Quick exit &#10005;</button>
 <div class="awning" aria-hidden="true"></div>
 <header class="nav">
   <a class="brand" href="#top" aria-label="The Eve Devitt Fund, home">
@@ -154,7 +152,6 @@ h2{font-size:clamp(30px,4.6vw,58px);margin-bottom:18px;letter-spacing:-.005em}
 </main>
 
 <!--@footer-->
-<script>document.getElementById('qe').addEventListener('click',function(){window.top.location.replace('https://www.weather.com/')});document.addEventListener('keydown',function(e){if(e.key==='Escape'){var t=Date.now();if(window.__esc&&t-window.__esc<900){window.top.location.replace('https://www.weather.com/')}window.__esc=t}});</script>
 <script>(function(){var y=new Date().getFullYear();document.querySelectorAll('[data-year]').forEach(function(e){e.textContent=y})})();</script>
 </body>
 </html>
