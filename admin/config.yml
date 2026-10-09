@@ -184,3 +184,4 @@ collections:
               - {label: Phone, name: phone, widget: string}
               - {label: Instagram address, name: instagram, widget: string}
               - {label: Legal line, name: legal, widget: text}
+              - {label: "Copyright line (use {year} for the current year, it updates itself)", name: copyright, widget: string, required: false}

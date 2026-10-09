@@ -12,6 +12,9 @@ def btn(label, url, cls=''):
 
 c = load('content/settings.json'); H = c['hero']; Hp = c['help']; Hw = c['how']; G = c['gift']
 Sc = c['scholars']; A = c['about']; D = c['donate']; C = c['crisis']; F = c['footer']
+import datetime
+def copyright(s):  # {year} becomes the current year; the page script keeps it current in each visitor's browser
+    return e(s).replace('{year}', '<span data-year>' + str(datetime.date.today().year) + '</span>')
 sec = {}
 sec['hero'] = f'''<section class="hero" id="top">
   <div class="in">
@@ -116,6 +119,7 @@ sec['footer'] = f'''<footer class="foot">
     <div><h3>Contact</h3><p>{e(F['email'])}</p><p>{e(F['phone'])}</p><p>Instagram <a href="{e(F['instagram'])}" target="_blank" rel="noopener">@evedevittfund</a></p></div>
     <div><h3>Get involved</h3><p><a href="#help">Mutual aid</a></p><p><a href="#donate">Give</a></p></div>
     <p class="legal">{e(F['legal'])}</p>
+    {f'<p class="copyright">{copyright(F["copyright"])}</p>' if F.get('copyright') else ''}
   </div>
 </footer>
 '''
