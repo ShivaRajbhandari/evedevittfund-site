@@ -39,10 +39,10 @@
     "description": "The Eve Devitt Fund is a 501(c)(3) nonprofit supporting Idaho's trans and non-binary youth with travel funds for gender-affirming care, scholarships and microgrants."
   },
   "theme": {
-    "ink": "#0A1240",
+    "ink": "#000000",
     "blue": "#2445F0",
-    "sky": "#5BCEFA",
-    "pink": "#F7A8C1",
+    "sky": "#7ACBF5",
+    "pink": "#EAACB8",
     "yellow": "#FFCF3F",
     "cream": "#FFF9EA"
   },
