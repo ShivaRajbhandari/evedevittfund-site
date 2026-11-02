@@ -1,7 +1,8 @@
 {
   "name": "Shiva Rajbhandari",
-  "role": "CFO",
+  "role": "Director",
   "photo": "/img/uploads/board-shiva-rajbhandari.jpg",
-  "bio": "Youth organizer focused on democratic participation. Graduate student at UNC-Chapel Hill.",
-  "order": 4
+  "bio": "Youth organizer and graduate student at UNC-Chapel Hill.",
+  "order": 4,
+  "photo_position": "center"
 }
